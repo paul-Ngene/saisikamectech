@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Token</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --border: #cbd5e1;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h2 {
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.15s ease;
+        }
+
+        input[type="number"]:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.15s ease;
+            margin-top: 0.5rem;
+        }
+
+        button:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .result-container {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: #f1f5f9;
+            border-radius: 6px;
+            text-align: center;
+            border: 1px dashed var(--border);
+        }
+
+        .token-display {
+            font-family: monospace;
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-top: 0.5rem;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Device Token Generator</h2>
+    
+    <!-- Action points to your Django view URL name -->
+    <form action="{% url 'generate_token_view' %}" method="POST">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="counter">Counter</label>
+            <input 
+                type="number" 
+                id="counter" 
+                name="counter" 
+                min="0" 
+                max="9999" 
+                placeholder="e.g., 1" 
+                required
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="hr">Hours</label>
+            <input 
+                type="number" 
+                id="hr" 
+                name="hr" 
+                min="0" 
+                max="9999" 
+                placeholder="e.g., 24" 
+                required
+            >
+        </div>
+
+        <button type="submit">Generate Token</button>
+    </form>
+
+    <!-- Optional: Display logic if you pass the token back in the context -->
+    {% if token %}
+    <div class="result-container">
+        <label>Generated Token</label>
+        <div class="token-display">{{ token }}</div>
+    </div>
+    {% endif %}
+</div>
+
+</body>
+</html>

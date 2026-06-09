@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Home Saisiska</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <style>
+
+    body {
+      font: 400 15px Lato, sans-serif;
+      line-height: 1.8;
+      color: #5f6b7a;
+      background: #f8fcff;
+    }
+
+    h2 {
+      font-size: 30px;
+      text-transform: uppercase;
+      color: #0d3b66;
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+
+    h4 {
+      font-size: 18px;
+      line-height: 1.6em;
+      color: #4b5c6b;
+    }
+
+    .navbar {
+      margin-bottom: 0;
+      background-color: #0d6efd;
+      border: 0;
+      border-radius: 0;
+      font-family: Montserrat, sans-serif;
+      letter-spacing: 2px;
+    }
+
+    .navbar li a,
+    .navbar .navbar-brand {
+      color: #fff !important;
+    }
+
+    .navbar-nav li a:hover {
+      background: #fff !important;
+      color: #0d6efd !important;
+    }
+
+    .jumbotron {
+      background: linear-gradient(to right, #0d6efd, #58b6ff);
+      color: white;
+      padding: 130px 25px;
+      font-family: Montserrat, sans-serif;
+    }
+
+    .jumbotron h1 {
+      font-size: 58px;
+      font-weight: 700;
+    }
+
+    .jumbotron p {
+      font-size: 20px;
+      margin-top: 20px;
+    }
+
+    .btn-primary-custom {
+      background: #fff;
+      color: #0d6efd;
+      border: none;
+      padding: 12px 30px;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+
+    .btn-primary-custom:hover {
+      background: #eaf4ff;
+    }
+
+    .container-fluid {
+      padding: 70px 50px;
+    }
+
+    .bg-grey {
+      background-color: #eef6ff;
+    }
+
+    .feature-box {
+      padding: 25px;
+      background: white;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      box-shadow: 0px 5px 20px rgba(0,0,0,0.05);
+      transition: 0.3s;
+    }
+
+    .feature-box:hover {
+      transform: translateY(-5px);
+    }
+
+    .logo-small {
+      font-size: 50px;
+      color: #0d6efd;
+      margin-bottom: 20px;
+    }
+
+    .device-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0px 4px 15px rgba(0,0,0,0.08);
+      margin-bottom: 30px;
+    }
+
+    .device-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .device-card .content {
+      padding: 20px;
+    }
+
+    .pricing-card {
+      border: 1px solid #dbe9ff;
+      border-radius: 10px;
+      background: white;
+      transition: 0.3s;
+    }
+
+    .pricing-card:hover {
+      box-shadow: 0px 8px 25px rgba(0,0,0,0.1);
+    }
+
+    .pricing-header {
+      background: #0d6efd;
+      color: white;
+      padding: 25px;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .pricing-footer {
+      padding: 20px;
+    }
+
+    .btn-plan {
+      background: #0d6efd;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 5px;
+    }
+
+    .btn-plan:hover {
+      background: #0056cc;
+      color: white;
+    }
+
+    footer {
+      background: #0d3b66;
+      color: white;
+      padding: 30px;
+    }
+
+    footer a {
+      color: #9ed0ff;
+    }
+
+    @media screen and (max-width: 768px) {
+
+      .jumbotron h1 {
+        font-size: 40px;
+      }
+
+      .container-fluid {
+        padding: 50px 20px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body id="home">
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle"
+              data-toggle="collapse"
+              data-target="#myNavbar">
+
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+
+      </button>
+
+      <a class="navbar-brand" href="#">
+        Saisika Mec Technology
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="myNavbar">
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#services">SERVICES</a></li>
+        <li><a href="#devices">PRODUCTS</a></li>
+        <li><a href="#pricing">PAYG</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+
+    </div>
+
+  </div>
+</nav>
+
+<!-- HERO SECTION -->
+
+<div class="jumbotron text-center">
+
+  <h1>We Offer All Your Technological Needs</h1>
+
+  <p>
+    Solar Installations, CCTV, Custom Made Devices, Device Rentals, Trainings, and more
+  </p>
+
+  <button class="btn btn-primary-custom btn-lg">
+    Browse Services
+  </button>
+
+</div>
+
+<!-- ABOUT -->
+
+<div id="about" class="container-fluid">
+
+  <div class="row">
+
+    <div class="col-sm-8">
+
+      <h2>About Our Platform</h2>
+
+      <h4>
+        We provide secure device borrowing and pay-as-you-go solutions
+        for individuals and businesses.
+      </h4>
+
+      <p>
+        Access smartphones, laptops, POS terminals, IoT devices,
+        routers, and smart equipment without paying the full cost upfront.
+        Our platform enables flexible payments, remote device management,
+        and seamless borrowing experiences.
+      </p>
+
+    </div>
+
+    <div class="col-sm-4 text-center">
+
+      <span class="glyphicon glyphicon-phone"
+            style="font-size:180px;color:#0d6efd;">
+      </span>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- SERVICES -->
+
+<div id="services" class="container-fluid bg-grey text-center">
+
+  <h2>Our Services</h2>
+
+  <div class="row">
+
+    <div class="col-sm-4">
+      <div class="feature-box">
+
+        <span class="glyphicon glyphicon-phone logo-small"></span>
+
+        <h4>Device Rentals</h4>
+
+        <p>
+          Borrow devices for short-term or long-term use.
+        </p>
+
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="feature-box">
+
+        <span class="glyphicon glyphicon-credit-card logo-small"></span>
+
+        <h4>PAYG Financing</h4>
+
+        <p>
+          Pay weekly or monthly while using the device.
+        </p>
+
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="feature-box">
+
+        <span class="glyphicon glyphicon-lock logo-small"></span>
+
+        <h4>Remote Security</h4>
+
+        <p>
+          Secure smart device management and access control.
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- DEVICES -->
+
+<div id="devices" class="container-fluid text-center">
+
+  <h2>Popular Devices</h2>
+
+  <div class="row">
+
+    <div class="col-sm-4">
+
+      <div class="device-card">
+
+        <img src="https://images.unsplash.com/photo-1585995603413-eb35b5f4a50b?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+
+        <div class="content">
+
+          <h4><strong>Power Banks</strong></h4>
+
+          <p>
+            Flexible Power Bank rental and ownership plans.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-sm-4">
+
+      <div class="device-card">
+
+        <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853">
+
+        <div class="content">
+
+          <h4><strong>Laptops</strong></h4>
+
+          <p>
+            Borrow laptops for work, school, or business operations.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-sm-4">
+
+      <div class="device-card">
+
+        <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4">
+
+        <div class="content">
+
+          <h4><strong>POS Terminals</strong></h4>
+
+          <p>
+            Affordable PAYG POS systems for merchants.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- PRICING -->
+
+<div id="pricing" class="container-fluid bg-grey">
+
+  <div class="text-center">
+
+    <h2>Pricing Plans</h2>
+
+    <h4>Choose a flexible payment option</h4>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-sm-4">
+
+      <div class="pricing-card text-center">
+
+        <div class="pricing-header">
+          <h2>Daily</h2>
+        </div>
+
+        <div class="pricing-footer">
+
+          <h3>₦2,000</h3>
+
+          <p>Short-term rentals</p>
+
+          <button class="btn btn-plan">
+            Get Started
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-sm-4">
+
+      <div class="pricing-card text-center">
+
+        <div class="pricing-header">
+          <h2>Weekly</h2>
+        </div>
+
+        <div class="pricing-footer">
+
+          <h3>₦10,000</h3>
+
+          <p>Flexible PAYG access</p>
+
+          <button class="btn btn-plan">
+            Choose Plan
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-sm-4">
+
+      <div class="pricing-card text-center">
+
+        <div class="pricing-header">
+          <h2>Monthly</h2>
+        </div>
+
+        <div class="pricing-footer">
+
+          <h3>₦35,000</h3>
+
+          <p>Best for businesses</p>
+
+          <button class="btn btn-plan">
+            Subscribe
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- CONTACT -->
+
+<div id="contact" class="container-fluid">
+
+  <h2 class="text-center">Contact Us</h2>
+
+  <div class="row">
+
+    <div class="col-sm-5">
+
+      <p>
+        Reach out for partnerships, rentals, or PAYG setup.
+      </p>
+
+      <p>
+        <span class="glyphicon glyphicon-map-marker"></span>
+        Lagos, Nigeria
+      </p>
+
+      <p>
+        <span class="glyphicon glyphicon-phone"></span>
+        +234 800 000 0000
+      </p>
+
+      <p>
+        <span class="glyphicon glyphicon-envelope"></span>
+        hello@deviceflow.com
+      </p>
+
+    </div>
+
+    <div class="col-sm-7">
+
+      <div class="row">
+
+        <div class="col-sm-6 form-group">
+          <input class="form-control"
+                 placeholder="Name"
+                 type="text">
+        </div>
+
+        <div class="col-sm-6 form-group">
+          <input class="form-control"
+                 placeholder="Email"
+                 type="email">
+        </div>
+
+      </div>
+
+      <textarea class="form-control"
+                placeholder="Message"
+                rows="5">
+      </textarea>
+
+      <br>
+
+      <button class="btn btn-primary-custom pull-right">
+        Send Message
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer class="text-center">
+
+  <p>
+    DeviceFlow © 2026 | Device Rental & PAYG Platform
+  </p>
+
+</footer>
+
+</body>
+</html>

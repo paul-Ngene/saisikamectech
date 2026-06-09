@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Access Control</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+        body{
+            font-family:Arial;
+            background:#f4f6f8;
+            text-align:center;
+            margin-top:100px;
+        }
+
+        .card{
+            width:350px;
+            margin:auto;
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            box-shadow:0 5px 20px rgba(0,0,0,.1);
+        }
+
+        input{
+            width:90%;
+            padding:14px;
+            font-size:18px;
+            margin:10px 0;
+        }
+
+        button{
+            width:100%;
+            padding:14px;
+            border:none;
+            background:#007bff;
+            color:white;
+            font-size:18px;
+            border-radius:6px;
+            cursor:pointer;
+        }
+
+        #msg{
+            margin-top:20px;
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Enter Token</h2>
+
+    <input id="token" placeholder="Input token">
+
+    <button onclick="submitToken()">Submit</button>
+
+    <div id="msg"></div>
+</div>
+
+<script>
+async function submitToken(){
+    let token=document.getElementById("token").value;
+
+    let fd=new FormData();
+    fd.append("token",token);
+
+    let res=await fetch("/submit",{
+        method:"POST",
+        body:fd
+    });
+
+    let data=await res.json();
+
+    document.getElementById("msg").innerHTML=data.msg;
+}
+</script>
+
+</body>
+</html>

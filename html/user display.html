@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>SAISIKA MEC TECHNOLOGY</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
+  <style>
+  body {
+    font: 400 15px Lato, sans-serif;
+    line-height: 1.8;
+    color:#555;
+  }
+  h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #303030;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+  h4 {
+    font-size: 19px;
+    line-height: 1.375em;
+    color: #303030;
+    font-weight: 400;
+    margin-bottom: 30px;
+  }  
+
+  .navbar {
+    margin-bottom: 0;
+    background-color: #00008B;
+    z-index: 9999;
+    border: 0;
+    font-size: 12px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 4px;
+    border-radius: 0;
+    font-family: Montserrat, sans-serif;
+  }
+  .navbar li a, .navbar .navbar-brand {
+    color: #fff !important;
+  }
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #00008B!important;
+    background-color: #fff !important;
+  }
+  .navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #fff !important;
+  }
+  footer .glyphicon {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #00008B;
+  }
+    /* Side navigation panel */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f0f7ff; /* Very soft ice blue */
+      height: 100%;
+    }
+    
+    /* Custom style for links inside the sidebar */
+    .sidenav a {
+      color: #2563eb;
+    }
+    .sidenav a:hover {
+      color: #1d4ed8;
+      text-decoration: underline;
+    }
+
+    /* Wells (the ad boxes) */
+    .well {
+      background-color: #e0f2fe; /* Light blue tint */
+      border: 1px solid #bae6fd;}
+
+
+  .row.content { height: 450px; }
+  .slideanim {visibility:hidden;}
+  .slide {
+    animation-name: slide;
+    -webkit-animation-name: slide;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    visibility: visible;
+  }
+
+#post{
+	padding:4px;
+	font-size:13px;
+	display:flex;
+	margin-bottom:20px;
+}
+
+  @keyframes slide {
+    0% {
+      opacity: 0;
+      transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }
+  }
+  .btn-primary-custom{
+    background:#00008B;
+    color:#fff;
+    border:none;
+}
+
+.btn-primary-custom:hover{
+    background:#3A6EA5;
+    color:#fff;
+}
+  @media screen and (max-width: 767px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+    .btn-lg {
+      width: 100%;
+      margin-bottom: 35px;
+    }
+    .sidenav {
+      height: auto;
+      padding: 15px;
+    }
+    .row.content { height: auto; } 
+    
+  }
+  @media screen and (max-width: 480px) {
+    .logo {
+      font-size: 150px;
+    }
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content { height: auto; } 
+  }
+
+
+  </style>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#myPage">Sasika</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#services">SERVICES</a></li>
+        <li><a href="#portfolio">PORTFOLIO</a></li>
+        <li><a href="#pricing">WHY US</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<br><br>
+ 
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <p><a href="#">Devices</a></p>
+      <p><a href="#">Installation</a></p>
+      <p><a href="#">Solar</a></p>
+    </div>
+    <div class="col-sm-8 text-left"> 
+<!--post area-->
+							<div id="post_bar">
+								<!--post 1 -->
+								<div id="post">
+									<div>
+									
+										<img src="user1.jpg" style="width:75px; 	margin-right: 4px;">
+									</div>
+									<div>
+										<div style ="font-weight:bold; color: 405d9b">USER of device</div>
+									Which device borrowed <br>hhhhhhhhhhhhhhhhhh<br>hhhhhhhhhhhhhhhhhhhhhhhhhrahraerahaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>
+									<br>
+									<a href="">Rent device </a>. <a href="">Buy </a>. <span style="color:#999;">Date</span> <span style="color:#999;">Delete</span> <span style="color:#999;">update</span>
+									</div>
+								
+								</div>
+								
+								
+								
+								<div id="post">
+									<div>
+									
+										<img src="user1.jpg" style="width:75px; 	margin-right: 4px;">
+									</div>
+									<div>
+										<div style ="font-weight:bold; color: 405d9b">USER of device</div>
+									ryehaaaaaaaaaahrarahhhhhh<br>hhhhhhhhhhhhhhhhhh<br>hhhhhhhhhhhhhhhhhhhhhhhhhrahraerahaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>
+									<br>
+									<a href="">Rent device </a>. <a href="">Buy </a>. <span style="color:#999;">Date</span> <span style="color:#999;">Delete</span> <span style="color:#999;">update</span>
+									</div>
+								
+								</div>
+								
+								
+								<div id="post">
+									<div>
+									
+										<img src="user1.jpg" style="width:75px; 	margin-right: 4px;">
+									</div>
+									<div>
+										<div style ="font-weight:bold; color: 405d9b">USER of device</div>
+									ryehaaaaaaaaaahrarahhhhhh<br>hhhhhhhhhhhhhhhhhh<br>hhhhhhhhhhhhhhhhhhhhhhhhhrahraerahaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>
+									<br>
+									<a href="">Rent device </a>. <a href="">Buy </a>. <span style="color:#999;">Date</span> <span style="color:#999;">Delete</span> <span style="color:#999;">update</span>
+									</div>
+								
+								</div>
+								
+								
+								<div id="post">
+									<div>
+									
+										<img src="user1.jpg" style="width:75px; 	margin-right: 4px;">
+									</div>
+									<div>
+										<div style ="font-weight:bold; color: 405d9b">USER of device</div>
+									ryehaaaaaaaaaahrarahhhhhh<br>hhhhhhhhhhhhhhhhhh<br>hhhhhhhhhhhhhhhhhhhhhhhhhrahraerahaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>
+									<br>
+									<a href="">Rent device </a>. <a href="">Buy </a>. <span style="color:#999;">Date</span> <span style="color:#999;">Delete</span> <span style="color:#999;">update</span>
+									</div>
+								
+								</div>
+								
+								
+								
+								
+								
+								
+								
+							</div>
+							
+    </div>
+    <div class="col-sm-2 sidenav">
+      <div class="well">
+        <p>ADS</p>
+      </div>
+      <div class="well">
+        <p>ADS</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<footer class="container-fluid text-center">
+    <a href="#myPage" title="To Top">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+    </a>
+
+    <p>
+        © 2026 SAISIKA MEC TECHNOLOGY
+    </p>
+
+    <p>
+        Engineering • Embedded Systems • Solar Energy • Software Development • Training
+    </p>
+</footer>
+
+</body>

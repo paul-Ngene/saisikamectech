@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Account</title>
+    <style>
+        .register-container { width: 400px; margin: 30px auto; font-family: sans-serif; }
+        .form-group { margin-bottom: 12px; }
+        .form-group label { display: block; margin-bottom: 4px; font-weight: bold; }
+        .form-group input, .form-group select { width: 100%; padding: 8px; box-sizing: border-box; }
+        .required::after { content: " *"; color: red; }
+        button { width: 100%; padding: 10px; background-color: #28a745; color: white; border: none; cursor: pointer; font-size: 16px; }
+        .error-box { color: #721c24; background-color: #f8d7da; padding: 10px; margin-bottom: 15px; display: none; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+<div class="register-container">
+    <h2>Create an Account</h2>
+    
+    <div id="errorBox" class="error-box"></div>
+
+    <form id="registerForm">
+        <div class="form-group">
+            <label for="username" class="required">Username</label>
+            <input type="text" id="username" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="email" class="required">Email Address</label>
+            <input type="email" id="email" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="password" class="required">Password</label>
+            <input type="password" id="password" required>
+        </div>
+
+        <div class="form-group">
+            <label for="nin" class="required">NIN (National Identification Number)</label>
+            <input type="text" id="nin" required>
+        </div>
+
+        <hr> <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone">
+        </div>
+
+        <div class="form-group">
+            <label for="gender">Gender</label>
+            <select id="gender">
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="birthdate">Date of Birth</label>
+            <input type="date" id="birthdate">
+        </div>
+
+        <button type="submit">Register & Sign In</button>
+    </form>
+</div>
+
+<script>
+document.getElementById('registerForm').addEventListener('submit', async function(event) {
+    event.preventDefault(); // Stop page from refreshing
+    
+    const errorBox = document.getElementById('errorBox');
+    errorBox.style.display = 'none'; // Clear previous errors
+
+    // 1. Package all form values into an object matching your Django keys
+    const payload = {
+        username: document.getElementById('username').value,
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value,
+        nin: document.getElementById('nin').value,
+        
+        // Optional values - if empty string, your backend safely defaults them
+        phone: document.getElementById('phone').value,
+        gender: document.getElementById('gender').value,
+        birthdate: document.getElementById('birthdate').value
+    };
+
+    try {
+        // 2. Send the data to the registration API route
+        const response = await fetch('/api/register/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload)
+        });
+
+        const data = await response.json();
+
+        // 3. Evaluate response
+        if (response.ok) {
+            // Success! The backend created the user and executed login()
+            console.log(`User created with ID: ${data.user_id}`);
+            alert(data.message); 
+            
+            // Redirect straight to the logged-in dashboard
+            window.location.href = '/dashboard/';
+        } else {
+            // Handles 400 errors (Missing fields, Duplicate username/email/NIN)
+            errorBox.textContent = data.error;
+            errorBox.style.display = 'block';
+        }
+    } catch (e) {
+        // Handles 500 or offline network issues
+        errorBox.textContent = "An unexpected error occurred. Please try again later.";
+        errorBox.style.display = 'block';
+    }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Django Multi-Project Workflow</title>
+
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background:#f4f4f4;
+      color:#222;
+      max-width:1000px;
+      margin:auto;
+      padding:20px;
+      line-height:1.7;
+    }
+
+    h1,h2,h3{
+      color:#0f172a;
+    }
+
+    .card{
+      background:white;
+      padding:20px;
+      margin-bottom:20px;
+      border-radius:10px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    pre{
+      background:#111827;
+      color:#22c55e;
+      padding:15px;
+      border-radius:10px;
+      overflow-x:auto;
+    }
+
+    code{
+      background:#111827;
+      color:#22c55e;
+      padding:2px 6px;
+      border-radius:5px;
+    }
+
+    .important{
+      background:#fef3c7;
+      border-left:5px solid #f59e0b;
+      padding:10px;
+      border-radius:6px;
+      margin-top:10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Django Multi-Project Workflow</h1>
+
+<div class="card">
+  <h2>1. Go to Your Main Projects Folder</h2>
+
+  <pre>
+cd ~/projects
+  </pre>
+
+  <div class="important">
+    This folder contains:
+    <ul>
+      <li>One shared virtual environment</li>
+      <li>Multiple Django projects</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <h2>2. Create Shared Virtual Environment</h2>
+
+  <pre>
+python -m venv venv
+  </pre>
+</div>
+
+<div class="card">
+  <h2>3. Activate Virtual Environment</h2>
+
+  <h3>Linux / macOS</h3>
+
+  <pre>
+source venv/bin/activate
+  </pre>
+
+  <h3>Windows CMD</h3>
+
+  <pre>
+venv\Scripts\activate
+  </pre>
+
+  <h3>Windows PowerShell</h3>
+
+  <pre>
+.\venv\Scripts\Activate.ps1
+  </pre>
+
+  <div class="important">
+    Activate venv before working on any project.
+  </div>
+</div>
+
+<div class="card">
+  <h2>4. Install Django</h2>
+
+  <pre>
+pip install django
+  </pre>
+
+  <h3>Verify Installation</h3>
+
+  <pre>
+python -m django --version
+  </pre>
+</div>
+
+<div class="card">
+  <h2>5. Create New Django Project</h2>
+
+  <pre>
+mkdir ecommerce
+cd ecommerce
+
+django-admin startproject config .
+  </pre>
+</div>
+
+<div class="card">
+  <h2>6. Run Development Server</h2>
+
+  <pre>
+python manage.py runserver
+  </pre>
+
+  <p>Open:</p>
+
+  <pre>
+http://127.0.0.1:8000/
+  </pre>
+</div>
+
+<div class="card">
+  <h2>7. Create Apps</h2>
+
+  <pre>
+python manage.py startapp users
+python manage.py startapp products
+python manage.py startapp payments
+  </pre>
+</div>
+
+<div class="card">
+  <h2>8. Register Apps</h2>
+
+  <p>Open:</p>
+
+  <pre>
+config/settings.py
+  </pre>
+
+  <p>Add apps inside <code>INSTALLED_APPS</code>:</p>
+
+  <pre>
+INSTALLED_APPS = [
+    "users.apps.UsersConfig",
+    "products.apps.ProductsConfig",
+    "payments.apps.PaymentsConfig",
+]
+  </pre>
+</div>
+
+<div class="card">
+  <h2>9. Create Models</h2>
+
+  <p>Example:</p>
+
+  <pre>
+from django.db import models
+
+class Product(models.Model):
+    name = models.CharField(max_length=100)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+
+    def __str__(self):
+        return self.name
+  </pre>
+</div>
+
+<div class="card">
+  <h2>10. Database Workflow</h2>
+
+  <h3>Create Migrations</h3>
+
+  <pre>
+python manage.py makemigrations
+  </pre>
+
+  <h3>Apply Migrations</h3>
+
+  <pre>
+python manage.py migrate
+  </pre>
+</div>
+
+<div class="card">
+  <h2>11. Admin Setup</h2>
+
+  <h3>Create Superuser</h3>
+
+  <pre>
+python manage.py createsuperuser
+  </pre>
+
+  <p>Follow prompts:</p>
+
+  <pre>
+Username:
+Email:
+Password:
+  </pre>
+
+  <div class="important">
+    This account logs into the Django admin dashboard.
+  </div>
+</div>
+
+<div class="card">
+  <h2>12. Register Models in Admin</h2>
+
+  <p>Open:</p>
+
+  <pre>
+products/admin.py
+  </pre>
+
+  <p>Add:</p>
+
+  <pre>
+from django.contrib import admin
+from .models import Product
+
+admin.site.register(Product)
+  </pre>
+
+  <div class="important">
+    Register every model you want visible in the admin dashboard.
+  </div>
+</div>
+
+<div class="card">
+  <h2>13. Access Django Admin</h2>
+
+  <h3>Start Server</h3>
+
+  <pre>
+python manage.py runserver
+  </pre>
+
+  <h3>Open Admin</h3>
+
+  <pre>
+http://127.0.0.1:8000/admin
+  </pre>
+
+  <p>Login with your superuser account.</p>
+</div>
+
+<div class="card">
+  <h2>14. Common Admin Customization</h2>
+
+  <p>Example:</p>
+
+  <pre>
+from django.contrib import admin
+from .models import Product
+
+@admin.register(Product)
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ("id", "name", "price")
+    search_fields = ("name",)
+  </pre>
+
+  <div class="important">
+    Useful for search, filters, sorting, and cleaner admin tables.
+  </div>
+</div>
+
+<div class="card">
+  <h2>15. Common Commands</h2>
+
+  <pre>
+python manage.py runserver
+python manage.py makemigrations
+python manage.py migrate
+python manage.py shell
+python manage.py createsuperuser
+python manage.py startapp appname
+  </pre>
+</div>
+
+<div class="card">
+  <h2>16. Recommended Structure</h2>
+
+  <pre>
+projects/
+│
+├── venv/
+│
+├── ecommerce/
+│   ├── manage.py
+│   ├── db.sqlite3
+│   │
+│   ├── config/
+│   │   ├── settings.py
+│   │   ├── urls.py
+│   │   ├── asgi.py
+│   │   └── wsgi.py
+│   │
+│   ├── users/
+│   ├── products/
+│   └── payments/
+│
+├── blog_project/
+│   ├── manage.py
+│   └── config/
+│
+├── inventory_system/
+│   ├── manage.py
+│   └── config/
+  </pre>
+</div>
+
+<div class="card">
+  <h2>17. Daily Workflow</h2>
+
+  <pre>
+cd ~/projects
+
+source venv/bin/activate
+
+cd ecommerce
+
+python manage.py runserver
+  </pre>
+</div>
+
+</body>
+</html>
